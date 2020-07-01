@@ -6,7 +6,13 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run dev",
+    "dev": "NODE_ENV=development webpack-dev-server --open --config webpack.dev.js",
+    "build": "npm run prod",
+    "prod": "rm -rf prod && mkdir prod && NODE_ENV=production webpack --config webpack.prod.js",
+    "test": "./node_modules/.bin/jest --verbose --config jest.config.json",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
