@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Journey from './Journey';
+import store from './store/store';
+import Journey from './containers/journey';
 class GitHubExplore extends Component {
 	render() {
 		return (
 			<div>
-				<Journey/>
+				<Journey store={store}/>
 			</div>
 		)
 	}
