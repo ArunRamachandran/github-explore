@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-class App extends Component {
+import Journey from './Journey';
+class GitHubExplore extends Component {
 	render() {
 		return (
 			<div>
-				<h4>Arun K Ramachandran</h4>
+				<Journey/>
 			</div>
 		)
 	}
 }
 
-ReactDOM.render(<App/>, document.getElementById("root"));
+ReactDOM.render(<GitHubExplore/>, document.getElementById("root"));
