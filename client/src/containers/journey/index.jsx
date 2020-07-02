@@ -6,7 +6,7 @@ class Journey extends Component {
     render() {
         return (
             <div className="app-container">
-                <p>App Container</p>
+                <p>App Container - Redux</p>
             </div>
         )
     }
