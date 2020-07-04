@@ -1,10 +1,23 @@
 import React from 'react';
+import ImageWrapper from '../image-wrapper';
 
-const Header = () => {
+import gitHubLogo from '../../static/icons8-github-144.png'
+import SearchBar from '../search-bar';
+
+const Header = (props) => {
 
     return (
         <div className="page-header-wrapper">
-            <h3 className="main-title">GitHub Explore</h3>
+            <ImageWrapper 
+                src={gitHubLogo} 
+                alt="github-icon"
+                width="50"
+                height="50"
+                customClassName="title-logo"/>
+            <h2 className="page-title">GitHub Explore</h2>
+            <div className="search-panel">
+                <SearchBar doSearch={props.doSearch}/>
+            </div>
         </div>
     )
 }
