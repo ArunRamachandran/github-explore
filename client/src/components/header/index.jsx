@@ -13,8 +13,9 @@ const Header = (props) => {
                 alt="github-icon"
                 width="50"
                 height="50"
-                customClassName="title-logo"/>
-            <h2 className="page-title">GitHub Explore</h2>
+                customClassName="title-logo"
+                onClickHandler={props.navigateToHomePage}/>
+            <h2 className="page-title cursor-pointer" onClick={props.navigateToHomePage}>GitHub Explore</h2>
             <div className="search-panel">
                 <SearchBar doSearch={props.doSearch}/>
             </div>

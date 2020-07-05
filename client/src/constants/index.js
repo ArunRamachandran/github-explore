@@ -4,9 +4,14 @@ const BASE_URL = 'https://api.github.com/search';
 const API_FAILURE = 'API_FAILURE';
 const API_SUCCESS = 'API_SUCCESS';
 
+const CARD_INDEX = 'CARD_INDEX'
+const NAVIGATE_TO_HOME_PAGE = 'NAVIGATE_TO_HOME_PAGE';
+
 export {
     SET_LOADER,
     BASE_URL,
     API_FAILURE,
-    API_SUCCESS
+    API_SUCCESS,
+    CARD_INDEX,
+    NAVIGATE_TO_HOME_PAGE
 }

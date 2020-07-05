@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ImageWrapper = (props) => (
-	<div className={`image-chopper ${props.customClassName}`}>
+	<div className={`image-chopper ${props.customClassName} ${props.onClickHandler ? `cursor-pointer`: ``}`} onClick={props.onClickHandler}>
 		<img 
 			src={props.src} 
 			alt={props.alt} 

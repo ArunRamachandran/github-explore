@@ -3,7 +3,9 @@ import * as Constants from '../constants';
 
 const getRepositories = (query) => {
     return dispatch => {
+        var t1, t2, apiResponseTime;
         dispatch(setLoader())
+        t1 = new Date().getTime();
         return request  
             .get(`${Constants.BASE_URL}/repositories?q=${query}`)
             .then(
@@ -11,7 +13,9 @@ const getRepositories = (query) => {
                     if (res.status && res.status !== 200) {
                         dispatch(setErrorCode())
                     } else {
-                        dispatch(updateSearchResults(res))
+                        t2 = new Date().getTime();
+                        apiResponseTime = ((t2 - t1)/1000)
+                        dispatch(updateSearchResults(res, query, apiResponseTime))
                     }
                 }
             )
@@ -29,12 +33,27 @@ const setErrorCode = () => ({
     type: Constants.API_FAILURE
 })
 
-const updateSearchResults = (response) => ({
+const updateSearchResults = (response, query, apiResponseTime) => ({
     type: Constants.API_SUCCESS,
-    payload: response.body
+    payload: {
+        data: response.body,
+        query,
+        apiResponseTime
+    }
+})
+
+const getCardIndex = (id) => ({
+    type: Constants.CARD_INDEX,
+    payload: id
+})
+
+const navigateToHomePage = () => ({
+    type: Constants.NAVIGATE_TO_HOME_PAGE
 })
 
 export {
     getRepositories,
-    setLoader
+    setLoader,
+    getCardIndex,
+    navigateToHomePage
 }

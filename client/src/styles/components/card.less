@@ -1,0 +1,123 @@
+.multi-card-container {
+    margin: 2em;
+
+    .multi-card-element {
+        min-width: 22%;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 10px;
+        font-size: 20px;
+        font-family: 'Roboto Slab';
+        max-width: 22%;
+        overflow: hidden;
+    
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        height: 100%;
+        transition: box-shadow 0.3s ease-in-out;
+    
+        .title-section {
+            display: flex;
+            flex-direction: column;
+            margin-left: auto;
+            margin-right: auto;
+    
+            .image-chopper {
+                margin-left: auto;
+                margin-right: auto;
+    
+                img {
+                    border-radius: 30px;
+                }
+            }
+        }
+    
+        .repo-specifications {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    
+    .multi-card-element:hover {
+        box-shadow: 0 0 0 4px #d7d7db;
+        cursor: pointer;
+    }
+}
+
+.single-card-container {
+    margin-top: 2em; 
+    display: flex;
+    min-width: 50%;
+    max-width: 50%;
+    min-height: 40%;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s ease-in-out;
+    font-family: 'Roboto Slab';
+
+    margin-left: auto;
+    margin-right: auto;
+
+    .single-card-element {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 10px;
+
+        .title-section {
+            display: flex;
+
+            .image-chopper {
+                img {
+                    width: 150px;
+                    height: 150px;
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    margin-right: 25px;
+                }
+            }
+
+            .repo-name {
+                margin-top: auto;
+                margin-bottom: auto;
+
+                p {
+                    font-size: 2em;
+                }
+            }
+        }
+
+        .repo-specifications {
+            display: flex;
+            margin: 1em;
+        }
+
+        .repo-additional-details {
+            margin: 1em;
+        }
+
+        .repo-statistics {
+            display: flex;
+            flex-direction: row;
+
+            .square-box {
+                background-color: #efefef;
+                padding: 0.5em;
+                margin-right: 1em;
+            }
+        }
+
+        .git-urls {
+            display: flex;
+            margin: 1.5em 0em;
+
+            a {
+                margin-right: 1em;
+            }
+        }
+    }
+}

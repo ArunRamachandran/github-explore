@@ -4,7 +4,11 @@ const initialState = {
     defaultContent: [],
     searchResults: [],
     filteredData: [],
-    isLoading: false
+    query: null,
+    isLoading: false,
+    isCardExpandable: false,
+    cardIndex: undefined,
+    apiResponseTime: undefined
 };
 
 const gitData = (state = initialState, action) => {
@@ -14,15 +18,33 @@ const gitData = (state = initialState, action) => {
         case Constants.SET_LOADER:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                isCardExpandable: false
             }
 
         case Constants.API_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                searchResults: [...payload.items],
-                filteredData: [...payload.items]
+                isCardExpandable: true,
+                query: payload.query,
+                searchResults: [...payload.data.items],
+                filteredData: [...payload.data.items],
+                apiResponseTime: payload.apiResponseTime
+            }
+
+        case Constants.CARD_INDEX:
+            return {
+                ...state,
+                filteredData: [state.searchResults[payload]],
+                isCardExpandable: false
+            }
+
+        case Constants.NAVIGATE_TO_HOME_PAGE:
+            return {
+                ...state,
+                filteredData: state.searchResults,
+                isCardExpandable: true
             }
 
         default:
