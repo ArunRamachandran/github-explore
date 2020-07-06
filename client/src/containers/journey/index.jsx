@@ -8,6 +8,9 @@ import {
 } from '../../actions';
 import DataLayer from '../../components/data-layer';
 import Statistics from '../../components/statistics';
+import PageLoader from '../../components/page-loader';
+import ImageWrapper from '../../components/image-wrapper';
+import gitHubSearchIcon from '../../static/github-search.png';
 class Journey extends Component {
 
     doSearch = (query) => {
@@ -23,7 +26,8 @@ class Journey extends Component {
         return (
             <div className="app-container">
                 <Header doSearch={this.doSearch} navigateToHomePage={this.navigateToHomePage}/>
-                {this.props.searchResults && this.props.searchResults.length && 
+                { this.props.isLoading && <PageLoader/> }
+                {!this.props.isLoading && this.props.searchResults && this.props.searchResults.length ?
                     <div>
                         {this.props.searchResults.length > 1 && 
                             <Statistics 
@@ -38,6 +42,16 @@ class Journey extends Component {
                             getCardIndex={this.props.getCardIndex}
                         /> 
                     </div>
+                    :
+                    this.props.query ?
+                        <div className="no-data-warning">
+                            <p>Sorry we couldn't find any results for <b>{this.props.query}</b>. Please try again.</p>
+                        </div>
+                        : 
+                        <div className="landing-page-container">
+                            <ImageWrapper src={gitHubSearchIcon} alt="github-search" width="100" height="100" className="landing-page-image"/>
+                            <p className="landing-page-text">Start searching your favourite repositories.</p>
+                        </div>
                 }
             </div>
         )
@@ -54,7 +68,8 @@ const mapStateToProps = state => ({
     searchResults: state.gitData.filteredData,
     isCardExpandable: state.gitData.isCardExpandable,
     query: state.gitData.query,
-    apiResponseTime: state.gitData.apiResponseTime
+    apiResponseTime: state.gitData.apiResponseTime,
+    isLoading: state.gitData.isLoading
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Journey);

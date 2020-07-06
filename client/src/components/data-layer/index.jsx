@@ -30,9 +30,18 @@ const DataLayer = (props) => {
     }
 
     return (
-        <div className={props.isExpandable ? `multi-card-container` : `single-card-container`}>
-            {props.repos && props.repos.map((repo, id) => configureCard(repo, id))}
-        </div>
+        <div>
+            {
+                props.repos && props.repos.length ?
+                    <div className={props.isExpandable ? `multi-card-container` : `single-card-container`}>
+                        { props.repos.map((repo, id) => configureCard(repo, id)) }
+                    </div>
+                    :
+                    <div className="no-data-warning">
+                        <h3>Sorry, we couldn't find any results this time. Please try again</h3>
+                    </div>
+            }
+        </div>        
     )
 }
 
