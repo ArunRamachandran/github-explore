@@ -21,38 +21,55 @@ class Journey extends Component {
         this.props.searchResults && this.props.searchResults.length === 1 && this.props.navigateToHomePage()
     }
 
+    constructErrorScreen = () => {
+        return (
+            <div className="no-data-warning">
+                <p>Sorry we couldn't find any results for <b>{this.props.query}</b>. Please try again.</p>
+            </div>
+        )
+    }
+
+    createDataLayer = () => {
+        return (
+            <div>
+                {
+                    this.props.searchResults.length &&  <Statistics 
+                        searchResults={this.props.searchResults} 
+                        query={this.props.query}
+                        apiResponseTime={this.props.apiResponseTime}
+                    />
+                }
+                <DataLayer 
+                    repos={this.props.searchResults} 
+                    isExpandable={this.props.isCardExpandable}
+                    getCardIndex={this.props.getCardIndex}
+                /> 
+            </div>
+        )
+    }
+
+    configurePageLayout = () => {
+        return (
+            <>
+                { 
+                    this.props.query ? 
+                        this.props.searchResults.length ? this.createDataLayer() : this.constructErrorScreen()                        
+                    :
+                    <div className="landing-page-container">
+                        <ImageWrapper src={gitHubSearchIcon} alt="github-search" width="100" height="100" className="landing-page-image"/>
+                        <p className="landing-page-text">Start searching your favourite repositories.</p>
+                    </div>
+                }
+            </>
+        )
+    }
+
     render() {
         
         return (
             <div className="app-container">
                 <Header doSearch={this.doSearch} navigateToHomePage={this.navigateToHomePage}/>
-                { this.props.isLoading && <PageLoader/> }
-                {!this.props.isLoading && this.props.searchResults && this.props.searchResults.length ?
-                    <div>
-                        {this.props.searchResults.length > 1 && 
-                            <Statistics 
-                                searchResults={this.props.searchResults} 
-                                query={this.props.query}
-                                apiResponseTime={this.props.apiResponseTime}
-                            />
-                        }
-                        <DataLayer 
-                            repos={this.props.searchResults} 
-                            isExpandable={this.props.isCardExpandable}
-                            getCardIndex={this.props.getCardIndex}
-                        /> 
-                    </div>
-                    :
-                    this.props.query ?
-                        <div className="no-data-warning">
-                            <p>Sorry we couldn't find any results for <b>{this.props.query}</b>. Please try again.</p>
-                        </div>
-                        : 
-                        <div className="landing-page-container">
-                            <ImageWrapper src={gitHubSearchIcon} alt="github-search" width="100" height="100" className="landing-page-image"/>
-                            <p className="landing-page-text">Start searching your favourite repositories.</p>
-                        </div>
-                }
+                { this.props.isLoading ? <PageLoader/> : this.configurePageLayout() }
             </div>
         )
     }
