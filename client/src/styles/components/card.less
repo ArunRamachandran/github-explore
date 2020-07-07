@@ -1,5 +1,10 @@
 .multi-card-container {
     margin: 2em;
+    justify-content: center;
+
+    @media only screen and (max-width: 600px) {
+        margin: 0;
+    }
 
     .multi-card-element {
         min-width: 22%;
@@ -16,14 +21,15 @@
         background: white;
         border-radius: 4px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        height: 100%;
         transition: box-shadow 0.3s ease-in-out;
+
+        @media only screen and (max-width: 600px) {
+            min-width: 100%;
+        }
     
         .title-section {
             display: flex;
             flex-direction: column;
-            margin-left: auto;
-            margin-right: auto;
     
             .image-chopper {
                 margin-left: auto;
@@ -32,6 +38,12 @@
                 img {
                     border-radius: 30px;
                 }
+            }
+
+            .repo-name {
+                margin-left: auto;
+                margin-right: auto;
+                overflow-wrap: anywhere;
             }
         }
     
@@ -72,6 +84,11 @@
         margin-left: auto;
         margin-right: auto;
         padding: 20px 10px;
+        overflow-wrap: anywhere;
+
+        @media only screen and (max-width: 600px) {
+            min-width: 100%;
+        }
 
         .title-section {
             display: flex;

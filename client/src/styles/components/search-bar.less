@@ -1,50 +1,71 @@
-.search-bar-wrapper {
+.search-panel {
+
     display: flex;
-    flex-direction: row;
-    background-color: #fff;
-    padding: 15px 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 6px;
+    width: 50%;
 
-    .search-icon {
-        margin-right: 25px;
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-
-    .search-field-container {
-        min-width: 80%;
-
-        .search-input-field {
-            font-family: 'Roboto Slab';
-            min-width: 100%;
-            border: 0px;
-            height: 100%;
-            font-size: 18px;
-            background-color: #fff;
-            outline: none;
-        }
-    }
-
-    .search-field-container:focus {
-        outline: none;
-        outline-color: #f3f3f4;
-        outline-width: 0;
-    }
-
-    .search-btn-container {
+    @media only screen and (max-width: 700px) {
         margin-left: auto;
-        
-        .search-primary-btn {
-            font-family: 'Roboto Slab';
-            background-color: black;
-            border-radius: 7px;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            cursor: pointer;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .search-bar-wrapper {
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        padding: 15px 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 6px;
+        min-width: 100%;
+    
+        .search-icon {
+            margin-right: 25px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    
+        .search-field-container {
+            width: 100%;
+
+            @media only screen and (max-width: 700px) {
+                min-width: 69%;
+            }
+    
+            .search-input-field {
+                font-family: 'Roboto Slab';
+                width: 100%;
+                border: 0px;
+                height: 100%;
+                font-size: 18px;
+                background-color: #fff;
+                outline: none;
+            }
+        }
+    
+        .search-field-container:focus {
+            outline: none;
+            outline-color: #f3f3f4;
+            outline-width: 0;
+        }
+    
+        .search-btn-container {
+            margin-left: auto;
+
+            @media only screen and (max-width: 700px) {
+                visibility: hidden;
+            }
+            
+            .search-primary-btn {
+                font-family: 'Roboto Slab';
+                background-color: black;
+                border-radius: 7px;
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-decoration: none;
+                cursor: pointer;
+            }
         }
     }
 }

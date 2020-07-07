@@ -1,10 +1,25 @@
 .api-statistics-wrapper {
     display: flex;
-    justify-content: space-between;
-    background-image: url(../../static/black-line.png);
-    background-position: center center;
-    background-repeat: repeat-x;
     position: relative;
     margin-left: 3em;
     margin-right: 3em;
+    justify-content: center;
+    font-family: 'Roboto Slab';
+
+    @media only screen and (max-width: 600px) {
+        display: flex; 
+        flex-direction: column;
+        position: relative;
+        margin: 1em;
+    }
+
+    p {
+        background-color: #efefef;
+        padding: 0.5em;
+        margin-right: 1em;
+
+        @media only screen and (max-width: 600px) {
+            margin-bottom: 0;
+        }
+    }
 }

@@ -31,7 +31,7 @@ class Journey extends Component {
 
     createDataLayer = () => {
         return (
-            <div>
+            <div className="application-data-layer">
                 {
                     this.props.searchResults.length &&  <Statistics 
                         searchResults={this.props.searchResults} 
@@ -69,7 +69,9 @@ class Journey extends Component {
         return (
             <div className="app-container">
                 <Header doSearch={this.doSearch} navigateToHomePage={this.navigateToHomePage}/>
+                <div className="data-container">
                 { this.props.isLoading ? <PageLoader/> : this.configurePageLayout() }
+                </div>
             </div>
         )
     }
