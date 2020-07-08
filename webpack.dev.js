@@ -24,10 +24,20 @@ module.exports = {
     optimization: {
         splitChunks: {
             cacheGroups: {
-                commons: {
-                    test: /[\\/]node_modules[\\/]/,
+                default: false,
+                vendors: false,
+                vendor: {
+                    // sync + async chunks
                     chunks: 'all',
+                    // import file path containing node_modules
+                    test: /node_modules/
                 },
+                styles: {
+                    name: 'styles',
+                    test: /\.less$/,
+                    chunks: 'all',
+                    enforce: true,
+                  },
             },
         },
     },
