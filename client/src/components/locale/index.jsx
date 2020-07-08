@@ -35,7 +35,7 @@ const Locale = () => {
 
         return (
             <ul>
-                {list.map((element, index) => <li key={index} onClick={() => onChangeHandler(element)}><a href="#">{element}</a></li>)}
+                {list.map((element, index) => <li className={`list-element-${index}`} key={index} onClick={() => onChangeHandler(element)}><a href="#">{element}</a></li>)}
             </ul>
         )
     }
