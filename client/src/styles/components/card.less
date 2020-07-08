@@ -84,14 +84,25 @@
         max-width: 70%;
     }
 
+    @media only screen and (max-width: 600px) {
+        min-width: 100%;
+    }
+
     .single-card-element {
         margin-left: auto;
         margin-right: auto;
-        padding: 20px 10px;
+        padding: 20px;
         overflow-wrap: anywhere;
 
         @media only screen and (max-width: 600px) {
             min-width: 100%;
+        }
+
+        .image-chopper {
+            .back-btn-icon {
+                margin-bottom: 1em;
+                cursor: pointer;
+            }
         }
 
         .title-section {
@@ -144,6 +155,57 @@
 
             a {
                 margin-right: 1em;
+            }
+        }
+
+        .repo-additional-details-container {
+        
+            .basic-information {
+                display: flex;
+                flex-direction: row;
+        
+                .box-container {
+                    background-color: #efefef;
+                    padding: 0.5em;
+                    margin-right: 1em;
+                }
+            }
+        
+            .contributors-list-container {
+                margin-top: 0.7em 0;
+                padding: 1em 0;
+        
+                .load-state-text {
+                    font-family: 'Roboto Slab';
+                }
+        
+                .contributors-list {
+                    display: flex;
+                    flex-direction: column;
+
+                    .contributors-title {
+                        margin: 0.5em 0;
+                    }
+        
+                    .contributors-list-element {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        margin: 1em 0;
+        
+                        .list-item {
+                            padding: 2em 1em;
+                            border: 2px solid #efefef;
+                            text-align: center;
+                            border-radius: 5px;
+                            margin: 0.5em;
+                        }
+        
+                        .contributor-name {
+                            font-size: 13px;
+                        }
+                    }
+                }
             }
         }
     }

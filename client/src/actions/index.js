@@ -51,11 +51,22 @@ const navigateToHomePage = () => ({
     type: Constants.NAVIGATE_TO_HOME_PAGE
 })
 
+const getAdditionalDetails = () => ({
+    type: Constants.GET_ADDITIONAL_DETAILS
+})
+
+const updateDataLayer = (payload) => ({
+    type: Constants.BACK_BUTTON_CLICK,
+    payload
+})
+
 export {
     getRepositories,
     setLoader,
     setErrorCode,
     updateSearchResults,
     getCardIndex,
-    navigateToHomePage
+    navigateToHomePage,
+    getAdditionalDetails,
+    updateDataLayer
 }

@@ -16,7 +16,8 @@ describe('Reducer', () => {
             isLoading: false,
             isCardExpandable: false,
             cardIndex: undefined,
-            apiResponseTime: undefined
+            apiResponseTime: undefined,
+            isAdditionalDetailsEnabled: false,
         };
         spyAction = {};
     })

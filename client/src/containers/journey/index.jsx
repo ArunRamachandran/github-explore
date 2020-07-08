@@ -4,7 +4,9 @@ import Header from '../../components/header';
 import { 
     getRepositories,
     getCardIndex,
-    navigateToHomePage
+    navigateToHomePage,
+    getAdditionalDetails,
+    updateDataLayer
 } from '../../actions';
 import DataLayer from '../../components/data-layer';
 import Statistics from '../../components/statistics';
@@ -18,7 +20,13 @@ class Journey extends Component {
     }
 
     navigateToHomePage = () => {
-        this.props.searchResults && this.props.searchResults.length === 1 && this.props.navigateToHomePage()
+        this.props.filteredResults && this.props.filteredResults.length === 1 && this.props.navigateToHomePage()
+    }
+
+    handleBackButtonClick = () => {
+        this.props.isAdditionalDetailsEnabled ? 
+            this.props.updateDataLayer(this.props.filteredResults) : 
+            this.props.updateDataLayer(this.props.searchResults)
     }
 
     constructErrorScreen = () => {
@@ -33,16 +41,19 @@ class Journey extends Component {
         return (
             <div className="application-data-layer">
                 {
-                    this.props.searchResults.length &&  <Statistics 
-                        searchResults={this.props.searchResults} 
+                    this.props.filteredResults.length &&  <Statistics 
+                        searchResults={this.props.filteredResults} 
                         query={this.props.query}
                         apiResponseTime={this.props.apiResponseTime}
                     />
                 }
                 <DataLayer 
-                    repos={this.props.searchResults} 
+                    repos={this.props.filteredResults} 
                     isExpandable={this.props.isCardExpandable}
                     getCardIndex={this.props.getCardIndex}
+                    getAdditionalDetails={this.props.getAdditionalDetails}
+                    isAdditionalDetailsEnabled={this.props.isAdditionalDetailsEnabled}
+                    handleBackButtonClick={this.handleBackButtonClick}
                 /> 
             </div>
         )
@@ -53,7 +64,7 @@ class Journey extends Component {
             <>
                 { 
                     this.props.query ? 
-                        this.props.searchResults.length ? this.createDataLayer() : this.constructErrorScreen()                        
+                        this.props.filteredResults.length ? this.createDataLayer() : this.constructErrorScreen()                        
                     :
                     <div className="landing-page-container">
                         <ImageWrapper src={gitHubSearchIcon} alt="github-search" width="100" height="100" className="landing-page-image"/>
@@ -80,15 +91,19 @@ class Journey extends Component {
 const mapDispatchToProps = {
     getRepositories,
     getCardIndex,
-    navigateToHomePage
+    navigateToHomePage,
+    getAdditionalDetails,
+    updateDataLayer
 }
 
 const mapStateToProps = state => ({
-    searchResults: state.gitData.filteredData,
+    searchResults: state.gitData.searchResults,
+    filteredResults: state.gitData.filteredData,
     isCardExpandable: state.gitData.isCardExpandable,
     query: state.gitData.query,
     apiResponseTime: state.gitData.apiResponseTime,
-    isLoading: state.gitData.isLoading
+    isLoading: state.gitData.isLoading,
+    isAdditionalDetailsEnabled: state.gitData.isAdditionalDetailsEnabled
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Journey);

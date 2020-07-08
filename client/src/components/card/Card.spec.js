@@ -15,7 +15,20 @@ describe('Card', () => {
         avatar_url: 'avatar_url',
         full_name: 'full_name',
         language: 'language'
-    }
+    }, 
+    repo = {
+        owner: {
+            avatar_url: 'avatar_url' 
+        },
+        full_name: 'full_name',
+        language: 'language',
+        description: 'description',
+        open_issues: '1',
+        watchers: '1',
+        homepage: 'homepage',
+        html_url: 'html_url'
+    };
+
     const wrapper = mount(<Card 
         isExpandable={true}
         index={1}
@@ -25,7 +38,8 @@ describe('Card', () => {
         fullName={mockProps.full_name}
         language={mockProps.language}
         isExpandable={true}
-        getCardIndex={getCardIndex}/>
+        getCardIndex={getCardIndex}
+        repo={repo}/>
     )
 
     it('Should render profile image of user', () => {

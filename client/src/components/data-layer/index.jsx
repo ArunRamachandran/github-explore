@@ -8,25 +8,21 @@ const DataLayer = (props) => {
             <Card 
                 className="multi-card-element"
                 index={id}
-                avatarUrl={repo.owner.avatar_url}
                 imgWidth="50"
                 imgHeight="50"
-                fullName={repo.full_name}
-                language={repo.language}
                 isExpandable={true}
-                getCardIndex={props.getCardIndex}/>
+                getCardIndex={props.getCardIndex}
+                repo={repo}/>
             : 
             <Card 
                 className="single-card-element"
                 index={id}
-                avatarUrl={repo.owner.avatar_url}
-                fullName={repo.full_name}
-                language={repo.language}
-                description={repo.description}
-                openIssues={repo.open_issues}
-                watchers={repo.watchers}
                 urls={[{name: 'visit home page', href: repo.homepage}, {name: 'source code', href: repo.html_url}]}
-                isExpandable={false}/>
+                isExpandable={false}
+                getAdditionalDetails={props.getAdditionalDetails}
+                isAdditionalDetailsEnabled={props.isAdditionalDetailsEnabled}
+                repo={repo}
+                backButtonHandler={props.handleBackButtonClick}/>
     }
 
     return (
