@@ -8,7 +8,6 @@ const getRepositories = (query) => {
         t1 = new Date().getTime();
         return request  
             .get(`${Constants.BASE_URL}/repositories?q=${query}`)
-            .set({'Accept-Language': 'fr-CA'})
             .then(
                 res => {
                     if (res.status && res.status !== 200) {
@@ -55,6 +54,8 @@ const navigateToHomePage = () => ({
 export {
     getRepositories,
     setLoader,
+    setErrorCode,
+    updateSearchResults,
     getCardIndex,
     navigateToHomePage
 }

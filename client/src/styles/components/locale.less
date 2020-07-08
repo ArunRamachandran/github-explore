@@ -1,0 +1,82 @@
+.browser-locale-information {
+    display: flex;
+    flex-direction: row;
+
+    .locale-browser-time {
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 1em;
+
+        .locale-generic-box {
+            margin: 0 2.5px;
+            border-radius: 4px;
+            padding: 0.5em;
+            background-color: #fff;
+        }
+    }
+
+    .locale-browser-language {
+        a {
+            text-decoration: none;
+        }
+        nav {
+            font-family: monospace;
+        }
+        ul {
+            background: darkorange;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            li {
+                ul {
+                    background: #fff;
+                    visibility: hidden;
+                    opacity: 0;
+                    min-width: 5rem;
+                    position: absolute;
+                    transition: all 0.5s ease;
+                    margin-top: 1rem;
+                    left: 0;
+                    display: none;
+                    &:hover {
+                        visibility: visible;
+                        opacity: 1;
+                        display: block;
+                    }
+                    li {
+                        clear: both;
+                        width: 100%;
+                    }
+                }
+                &:hover {
+                    >ul {
+                        visibility: visible;
+                        opacity: 1;
+                        display: block;
+                    }
+                }
+            }
+        }
+        li {
+            color: #fff;
+            background: #fff;
+            display: block;
+            float: left;
+            padding: 0.9rem;
+            position: relative;
+            text-decoration: none;
+            transition-duration: 0.5s;
+            a {
+                color: #000000;
+            }
+            &:hover {
+                background: #FF8C00;
+                cursor: pointer;
+            }
+        }
+        
+    }
+}

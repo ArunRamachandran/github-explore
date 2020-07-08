@@ -33,7 +33,8 @@
     },
     "transform": {
       "^.+\\.jsx?$": "babel-jest",
-      "^.+\\.(css|less)$": "./styleMock.js"
+      "^.+\\.(css|less)$": "./styleMock.js",
+      "^.+\\.(png|jpg)$": "./styleMock.js"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/enzyme.config.js",
     "testURL": "http://localhost:9000/lloyds/#/"

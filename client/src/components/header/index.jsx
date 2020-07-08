@@ -3,6 +3,7 @@ import ImageWrapper from '../image-wrapper';
 
 import gitHubLogo from '../../static/icons8-github-144.png'
 import SearchBar from '../search-bar';
+import Locale from '../locale';
 
 const Header = (props) => {
 
@@ -20,6 +21,9 @@ const Header = (props) => {
             </div>
             <div className="search-panel">
                 <SearchBar doSearch={props.doSearch}/>
+            </div>
+            <div className="locale-data-container">
+                <Locale/>
             </div>
         </div>
     )
