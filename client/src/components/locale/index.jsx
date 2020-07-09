@@ -14,9 +14,7 @@ const Locale = () => {
         return (navigator.languages && navigator.languages.length) ? navigator.languages[0] : navigator.language;
     }
         
-    const locale = getLocale(),
-        currentDate = new Date(),
-        date = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDay(), currentDate.getHours(), currentDate.getMinutes(), currentDate.getSeconds());
+    const locale = getLocale();
     
     const format = new Intl.DateTimeFormat(
       locale,
@@ -44,7 +42,7 @@ const Locale = () => {
         <div className="browser-locale-information">
             <div className="locale-browser-time">
                 <span className="locale-generic-box timezone">{getBrowserIntlTimezone()}</span>
-                <span className="locale-generic-box time-stamp">{format.format(date)}</span>
+                <span className="locale-generic-box time-stamp">{format.format(new Date())}</span>
             </div>
             <div className="locale-browser-language">
                 <nav role="navigation">
