@@ -18,6 +18,6 @@ describe('SearchBar', () => {
     
     it('should render the main components within the search bar', () => {
         expect(wrapper.find(ImageWrapper)).toHaveLength(1);
-        expect(wrapper.find(InputField)).toHaveLength(2)
+        expect(wrapper.find(InputField)).toHaveLength(1)
     })
 });

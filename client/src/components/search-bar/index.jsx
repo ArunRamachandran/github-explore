@@ -46,13 +46,6 @@ const SearchBar = (props) => {
                 name="search-input-field"
                 id="search-input-field"
                 ref={inputRef}/>
-            <InputField
-                type="submit"
-                placeholder="Search"
-                wrapperClassName="search-btn-container"
-                className="search-primary-btn"
-                name="search-btn"
-                id="search-btn"/>
         </div>
     )
 }
