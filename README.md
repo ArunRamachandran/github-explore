@@ -60,3 +60,23 @@ npm run test
  
 ```
 npm run build
+
+```
+
+# Development update
+
+The application is coded in React-Redux combination. 
+
+Webpack is utilised as a build tool with a customised configuration to get the best end result. The final build is also splitter into different chunks with Webpack. Development and production configurations are utilised for dev and prod environments.
+
+The React code is classified into smart and dumb components & the project folder structure is self-explanatory to find and read code. 
+
+React Hooks are incorporated within the functional components wherever required and I have also tried to split down the components into the smallest building blocks of the application. 
+
+Implemented LazyLoading for loading images and external files and this has drastically reduced the page load time. The same can be experienced while scrolling down through the application.
+
+Browser navigator properties are utilised to display the browser culture. 
+
+Application is responsive and I have tried to get a seamless experience in all major device breakpoints, including the mobile and tablets width.
+
+Jest & Enzyme are utilised for unit testing
