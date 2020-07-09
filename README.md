@@ -80,3 +80,5 @@ Browser navigator properties are utilised to display the browser culture. 
 Application is responsive and I have tried to get a seamless experience in all major device breakpoints, including the mobile and tablets width.
 
 Jest & Enzyme are utilised for unit testing
+
+# There is a rate limit at the moment about the number of requests being sent/receive from GitHub servers and which is restricted to 60 req / per hour. This can be overwritten by making use of authenticated apis & pagination and which is considering as an improvement to the current implementation.
