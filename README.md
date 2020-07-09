@@ -10,3 +10,22 @@ The project is developed to explore the GitHub respositories at a glance. This a
 -   [Prerequisite](#prerequisite) 
 -   [How to run API server](#how-to-run-api-server) 
 -   [Installtion process](#installtion-process)
+
+# Use cases
+
+The following use cases are addressed within the application
+
+-   The user will be able to:
+    - See results for a speicific search query
+    - Search by respository name
+    - View details about a specific respository by deep linked tree
+    - View the total results displayed and api response time
+    - View the locale timezone, formatted time and preferred browser locale languages
+    - Lazy loading all extrernal apis to reduce the load time
+
+The interactions won't be refreshing the page.
+
+# Prerequisite
+
+Node v10.0.0
+npm v5.6.0
