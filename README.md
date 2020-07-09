@@ -27,5 +27,36 @@ The interactions won't be refreshing the page.
 
 # Prerequisite
 
-Node v10.0.0
-npm v5.6.0
+Node >= v10.0.0
+npm >= v5.6.0
+
+# Installtion process
+
+- clone the project 
+
+```   
+git@github.com:ArunRamachandran/github-explore.git
+```
+
+- Install the project dependencies
+
+``` 
+npm install
+```
+ 
+- Run in development mode
+
+```
+npm run start
+```
+
+- To run unit test cases
+
+```
+npm run test
+```
+ 
+# Production build
+ 
+```
+npm run build
