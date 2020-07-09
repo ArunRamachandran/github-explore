@@ -1,4 +1,4 @@
-**The project is intend to set up a Reacrt-Redux application to make use of GitHub api v3 to explore the user respositories based on search query parameter**
+**The project is intend to set up a React-Redux application to make use of GitHub api v3 to explore the user respositories based on search query parameter**
 
 # Project
 
