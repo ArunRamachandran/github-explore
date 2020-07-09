@@ -67,7 +67,7 @@ const Contributors = (props) => {
                 <div className="box-container">Total forks: {props.repo.forks_count}</div>
             </div>
             <div className="contributors-list-container">
-                {loader ? <div className="load-state-text">Lading contributors list...</div> : createContributorsList()}
+                {loader ? <div className="load-state-text">Loading contributors list...</div> : createContributorsList()}
             </div>
         </div>
     )

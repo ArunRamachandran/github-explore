@@ -67,7 +67,7 @@ npm run build
 
 The application is coded in React-Redux combination. 
 
-Webpack is utilised as a build tool with a customised configuration to get the best end result. The final build is also splitter into different chunks with Webpack. Development and production configurations are utilised for dev and prod environments.
+Webpack is utilised as a build tool with a customised configuration to get the best end result. The final build is also split into multiple chunks with Webpack. Development and production configurations are utilised for dev and prod environments.
 
 The React code is classified into smart and dumb components & the project folder structure is self-explanatory to find and read code. 
 
@@ -77,7 +77,7 @@ Implemented LazyLoading for loading images and external files and this has drast
 
 Browser navigator properties are utilised to display the browser culture. 
 
-Application is responsive and I have tried to get a seamless experience in all major device breakpoints, including the mobile and tablets width.
+Application is responsive and UI has designed to get a seamless experience in all major device break points.
 
 Jest & Enzyme are utilised for unit testing
 
