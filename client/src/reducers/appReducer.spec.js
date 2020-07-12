@@ -18,6 +18,9 @@ describe('Reducer', () => {
             cardIndex: undefined,
             apiResponseTime: undefined,
             isAdditionalDetailsEnabled: false,
+            pageCount: 1,
+            totalResults: 0,
+            queryLimit: 0
         };
         spyAction = {};
     })
@@ -36,7 +39,10 @@ describe('Reducer', () => {
         expectedState = {
             ...defaultState,
             isLoading: true,
-            isCardExpandable: false
+            isCardExpandable: false,
+            pageCount: 0,
+            totalResults: 0,
+            queryLimit: 0
         }
 
         store.dispatch(spyAction);
@@ -49,9 +55,11 @@ describe('Reducer', () => {
             payload: {
                 query: 'test',
                 data: {
-                    items: ['test_element1', 'test_element2']
+                    items: ['test_element1', 'test_element2'],
+                    total_count: 50
                 },
-                apiResponseTime: '1.09s'
+                apiResponseTime: '1.09s',
+                queryLimit: 1
             }
         }, 
         spyActionCardIndex = {
@@ -65,7 +73,9 @@ describe('Reducer', () => {
             query: spyAction.payload.query,
             searchResults: [...spyAction.payload.data.items],
             filteredData: [...spyAction.payload.data.items],
-            apiResponseTime: spyAction.payload.apiResponseTime
+            apiResponseTime: spyAction.payload.apiResponseTime,
+            totalResults: spyAction.payload.data.total_count,
+            queryLimit: spyAction.payload.queryLimit
         }
 
         store.dispatch(spyAction);
@@ -80,7 +90,9 @@ describe('Reducer', () => {
                 query: spyAction.payload.query,
                 searchResults: [...spyAction.payload.data.items],
                 filteredData: ['test_element2'],
-                apiResponseTime: spyAction.payload.apiResponseTime
+                apiResponseTime: spyAction.payload.apiResponseTime,
+                totalResults: spyAction.payload.data.total_count,
+                queryLimit: spyAction.payload.queryLimit
             }
         )
     })
@@ -96,5 +108,15 @@ describe('Reducer', () => {
 
         store.dispatch(spyAction);
         expect(store.getState()).toEqual(state);
+    })
+
+    it('should handle UPDATE_PAGE_COUNT', () => {
+        const spyAction = {
+            type: Constants.UPDATE_PAGE_COUNT,
+            payload: 1
+        }
+
+        store.dispatch(spyAction);
+        expect(store.getState()).toEqual({ ...defaultState, pageCount: spyAction.payload })
     })
 });

@@ -29,6 +29,19 @@ class Journey extends Component {
             this.props.updateDataLayer(this.props.searchResults)
     }
 
+    loadNextPage = () => {
+        this.props.getRepositories(this.props.query, this.props.pageCount + 1);
+    }
+
+    isNextPageAllowed = () => {
+        const {
+            pageCount,
+            queryLimit
+        } = this.props;
+        
+        return pageCount < queryLimit;
+    }
+
     constructErrorScreen = () => {
         return (
             <div className="no-data-warning">
@@ -54,6 +67,8 @@ class Journey extends Component {
                     getAdditionalDetails={this.props.getAdditionalDetails}
                     isAdditionalDetailsEnabled={this.props.isAdditionalDetailsEnabled}
                     handleBackButtonClick={this.handleBackButtonClick}
+                    loadNextPage={this.loadNextPage}
+                    isNextPageAllowed={this.isNextPageAllowed}
                 /> 
             </div>
         )
@@ -103,7 +118,10 @@ const mapStateToProps = state => ({
     query: state.gitData.query,
     apiResponseTime: state.gitData.apiResponseTime,
     isLoading: state.gitData.isLoading,
-    isAdditionalDetailsEnabled: state.gitData.isAdditionalDetailsEnabled
+    isAdditionalDetailsEnabled: state.gitData.isAdditionalDetailsEnabled,
+    pageCount: state.gitData.pageCount,
+    totalResults: state.gitData.totalResults,
+    queryLimit: state.gitData.queryLimit
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Journey);

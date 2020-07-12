@@ -16,7 +16,7 @@ describe('Actions', () => {
 
         const result = actions.getRepositories('test')(dispatch);
         expect(dispatch).toHaveBeenCalledWith(mockRequestPayload);
-        expect(request.get).toHaveBeenCalledWith('https://api.github.com/search/repositories?q=test');
+        expect(request.get).toHaveBeenCalledWith('https://api.github.com/search/repositories?q=test&page=1&per_page=50');
     })
 
     it('setLoader', () => {

@@ -30,6 +30,7 @@ const DataLayer = (props) => {
             <div className={props.isExpandable ? `multi-card-container` : `single-card-container`}>
                 { props.repos && props.repos.map((repo, id) => configureCard(repo, id)) }
             </div>
+            { props.isExpandable && props.isNextPageAllowed() && <div className="pagination-content"><p onClick={props.loadNextPage}>Load more</p></div>}
         </div>        
     )
 }

@@ -9,7 +9,10 @@ const initialState = {
     isCardExpandable: false,
     cardIndex: undefined,
     apiResponseTime: undefined,
-    isAdditionalDetailsEnabled: false
+    isAdditionalDetailsEnabled: false,
+    pageCount: 1,
+    totalResults: 0,
+    queryLimit: 0
 };
 
 const gitData = (state = initialState, action) => {
@@ -20,7 +23,10 @@ const gitData = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: true,
-                isCardExpandable: false
+                isCardExpandable: false,
+                pageCount: 0,
+                totalResults: 0,
+                queryLimit: 0
             }
 
         case Constants.API_SUCCESS:
@@ -29,9 +35,17 @@ const gitData = (state = initialState, action) => {
                 isLoading: false,
                 isCardExpandable: true,
                 query: payload.query,
-                searchResults: [...payload.data.items],
-                filteredData: [...payload.data.items],
-                apiResponseTime: payload.apiResponseTime
+                searchResults: state.pageCount ? [...state.searchResults, ...payload.data.items] : [...payload.data.items],
+                filteredData: state.pageCount ? [...state.searchResults, ...payload.data.items] : [...payload.data.items],
+                apiResponseTime: payload.apiResponseTime,
+                totalResults: payload.data.total_count,
+                queryLimit: payload.queryLimit
+            }
+
+        case Constants.UPDATE_PAGE_COUNT:
+            return {
+                ...state,
+                pageCount: payload
             }
 
         case Constants.CARD_INDEX:
