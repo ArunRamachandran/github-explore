@@ -35,8 +35,8 @@ const gitData = (state = initialState, action) => {
                 isLoading: false,
                 isCardExpandable: true,
                 query: payload.query,
-                searchResults: state.pageCount ? [...state.searchResults, ...payload.data.items] : [...payload.data.items],
-                filteredData: state.pageCount ? [...state.searchResults, ...payload.data.items] : [...payload.data.items],
+                searchResults: state.pageCount && payload.query === state.query ? [...state.searchResults, ...payload.data.items] : [...payload.data.items],
+                filteredData: state.pageCount && payload.query === state.query ? [...state.searchResults, ...payload.data.items] : [...payload.data.items],
                 apiResponseTime: payload.apiResponseTime,
                 totalResults: payload.data.total_count,
                 queryLimit: payload.queryLimit
