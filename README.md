@@ -75,6 +75,8 @@ React Hooks are incorporated within the functional components wherever required 
 
 Implemented LazyLoading for loading images and external files and this has drastically reduced the page load time. The same can be experienced while scrolling down through the application.
 
+Included pagination by providing a 'load more' action button at the end of every search results, which will eventually pull next set of results by passing a dynamic page number to the api.
+
 Browser navigator properties are utilised to display the browser culture. 
 
 Application is responsive and UI has designed to get a seamless experience in all major device break points.
