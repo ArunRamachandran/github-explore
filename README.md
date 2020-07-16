@@ -10,6 +10,7 @@ The project is developed to explore the GitHub respositories at a glance. This a
 -   [Prerequisite](#prerequisite) 
 -   [How to run API server](#how-to-run-api-server) 
 -   [Installtion process](#installtion-process)
+-   [Future enhancements](#future-enhancements)
 
 # Use cases
 
@@ -84,3 +85,9 @@ Application is responsive and UI has designed to get a seamless experience in al
 Jest & Enzyme are utilised for unit testing
 
 * There is a rate limit at the moment about the number of requests being sent/receive from GitHub servers and which is restricted to 60 req / per hour. This can be overwritten by making use of authenticated apis & pagination and which is considering as an improvement to the current implementation.
+
+# Future enhancements - Potential improvement areas
+
+- Change UI based on the users language selection by utilising the browser cultre as an additional functionality.
+
+- Implement gitHub authentication to explore private repositories as an additional functionality.
